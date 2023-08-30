@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar } from "react-native";
 
 import {
   useFonts,
@@ -9,25 +9,29 @@ import {
   Rubik_600SemiBold,
   Rubik_700Bold,
 } from "@expo-google-fonts/rubik";
-import Home from './src/screens/Home';
+import Tabs from "./src/components/tabs";
 
 export default function App() {
-
   let [fontsLoaded, fontError] = useFonts({
-    'RubikRegular': Rubik_400Regular,
-    'RubikBold': Rubik_700Bold,
-    'RubikMedium': Rubik_500Medium,
-    'RubikSemibold': Rubik_600SemiBold,
+    RubikRegular: Rubik_400Regular,
+    RubikBold: Rubik_700Bold,
+    RubikMedium: Rubik_500Medium,
+    RubikSemibold: Rubik_600SemiBold,
   });
-  
+
   if (!fontsLoaded && !fontError) {
     return null;
   }
-  
+
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        backgroundColor: "#121214",
+        height: "100%",
+      }}
+    >
       <StatusBar />
-      <Home />
+      <Tabs />
     </SafeAreaView>
   );
 }
