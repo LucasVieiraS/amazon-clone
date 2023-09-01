@@ -8,9 +8,9 @@ import {
   ImageSourcePropType,
 } from "react-native";
 
-import { Ionicons } from "@expo/vector-icons";
-
 import Card from "../../components/card";
+import LocationBanner from "../../components/location-banner";
+import Navbar from "../../components/navbar";
 
 export interface ProductData {
   id?: number;
@@ -42,13 +42,9 @@ export default function Home() {
   return (
     <>
       <View>
+        <Navbar />
+        <LocationBanner />
         <View style={styles.root}>
-          <View style={styles.textWithIcon}>
-            <Text>
-              <Ionicons name="ios-cart" size={32} color="white" />
-            </Text>
-            <Text style={styles.title1}>PRODUTOS</Text>
-          </View>
           <ScrollView horizontal style={styles.scrollView}>
             {products.map((productData: ProductData) => {
               return (
@@ -98,7 +94,6 @@ const styles = StyleSheet.create({
   },
   title1: {
     fontWeight: "bold",
-    fontSize: 20,
     color: "white",
   },
 });

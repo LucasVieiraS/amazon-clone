@@ -9,7 +9,7 @@ import {
   Rubik_600SemiBold,
   Rubik_700Bold,
 } from "@expo-google-fonts/rubik";
-import Tabs from "./src/components/tabs";
+import Home from "./src/screens/Home";
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -26,12 +26,11 @@ export default function App() {
   return (
     <SafeAreaView
       style={{
-        backgroundColor: "#121214",
-        height: "100%",
+        minHeight: "100%",
       }}
     >
       <StatusBar />
-      <Tabs />
+      <Home />
     </SafeAreaView>
   );
 }

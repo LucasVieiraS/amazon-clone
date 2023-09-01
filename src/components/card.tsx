@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#202024",
     borderRadius: 6,
     padding: 8,
-    marginHorizontal: gap / 2,
 
     shadowColor: "#171717",
     shadowOffset: { width: -2, height: 4 },
