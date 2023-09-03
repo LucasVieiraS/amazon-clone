@@ -23,7 +23,7 @@ export default function CategoriesSlider() {
             .then((response: AxiosResponse) => response.data)
             .then((categories: string[]) => setCategories(categories))
             .finally(() => {
-                if (categories.length == 0) return;
+                if (categories.includes('home')) return;
                 const join = [
                     ...categories,
                     'home',
@@ -36,8 +36,8 @@ export default function CategoriesSlider() {
     return (
         <ScrollView horizontal style={styles.scroll} >
             {
-                categories.map((category: string) => {
-                    return <Category category={category} />
+                categories.map((category: string, index: number) => {
+                    return <Category key={index} category={category} />
                 })
             }
             {

@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, Alert } from 'react-native';
 import { styles } from "./styles";
 
 import { MaterialIcons, Foundation, FontAwesome } from "@expo/vector-icons";
@@ -21,11 +21,21 @@ export default function Category({ category }: CategoryProps) {
         return icons[category] || <Text>{category}</Text>;
     }
 
+    const createTwoButtonAlert = () =>
+        Alert.alert('Alert Title', 'My Alert Msg', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+            },
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ]);
+
     return (
-            <Pressable>
-                <View style={styles.category}>
-                    {getIcon(category)}
-                </View>
-            </Pressable>
+        <Pressable onPress={() => createTwoButtonAlert}>
+            <View style={styles.category}>
+                {getIcon(category)}
+            </View>
+        </Pressable>
     )
 }
