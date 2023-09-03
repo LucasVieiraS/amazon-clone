@@ -1,99 +1,35 @@
 import React from "react";
 
 import {
-  Text,
   View,
-  StyleSheet,
-  ScrollView,
-  ImageSourcePropType,
+  Text
 } from "react-native";
 
-import Card from "../../components/card";
-import LocationBanner from "../../components/location-banner";
-import Navbar from "../../components/navbar";
-
-export interface ProductData {
-  id?: number;
-  productName: string;
-  productImage: ImageSourcePropType;
-  productPrice: number;
-}
+import LocationBanner from "../../components/LocationBanner";
+import Navbar from "../../components/Navbar";
+import ProductSlider from "../../components/ProductSlider";
+import ScreenDivider from "../../components/ScreenDivider";
+import SectionTitle from "../../components/SectionTitle";
+import CategoriesSlider from "../../components/CategoriesSlider";
 
 export default function Home() {
-  const products: ProductData[] = [
-    {
-      id: 1,
-      productName: "Guitarra Tagima T403",
-      productPrice: 1200,
-      productImage: {
-        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsJsAzhFFHWBA_kTp6M6cmuv6bysC2qcbmeQ&usqp=CAU",
-      },
-    },
-    {
-      id: 2,
-      productName: "Guitarra Tagima T403",
-      productPrice: 1200,
-      productImage: {
-        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsJsAzhFFHWBA_kTp6M6cmuv6bysC2qcbmeQ&usqp=CAU",
-      },
-    },
-  ];
-
   return (
     <>
       <View>
         <Navbar />
         <LocationBanner />
-        <View style={styles.root}>
-          <ScrollView horizontal style={styles.scrollView}>
-            {products.map((productData: ProductData) => {
-              return (
-                <Card
-                  productName={productData.productName}
-                  productPrice={productData.productPrice}
-                  productImage={productData.productImage}
-                  key={productData.id}
-                />
-              );
-            })}
-          </ScrollView>
-        </View>
+        <CategoriesSlider />
+        <ScreenDivider />
+        <SectionTitle>
+          Mais Vendidos
+        </SectionTitle>
+        <ProductSlider params="?limit=15" />
+        <ScreenDivider />
+        <SectionTitle>
+          Ofertas do Dia
+        </SectionTitle>
+        <ProductSlider params="?sort=desc" />
       </View>
     </>
   );
 }
-
-export const gap = 8;
-
-const styles = StyleSheet.create({
-  backgroundHolder: {
-    flex: 1,
-    flexDirection: "column",
-  },
-  scrollView: {
-    display: "flex",
-    flexDirection: "row",
-    paddingHorizontal: gap / -2,
-    marginTop: 5,
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-  },
-  textWithIcon: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    color: "white",
-    gap: 6,
-  },
-  root: {
-    padding: 6,
-    width: "100%",
-  },
-  title1: {
-    fontWeight: "bold",
-    color: "white",
-  },
-});
