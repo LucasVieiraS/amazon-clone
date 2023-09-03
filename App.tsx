@@ -1,22 +1,20 @@
 import React from "react";
 
-import { SafeAreaView, StatusBar } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar } from "react-native";
 
 import {
   useFonts,
-  Rubik_400Regular,
-  Rubik_500Medium,
-  Rubik_600SemiBold,
-  Rubik_700Bold,
-} from "@expo-google-fonts/rubik";
+  Ubuntu_400Regular,
+  Ubuntu_500Medium,
+  Ubuntu_700Bold,
+} from "@expo-google-fonts/ubuntu";
 import Home from "./src/screens/Home";
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
-    RubikRegular: Rubik_400Regular,
-    RubikBold: Rubik_700Bold,
-    RubikMedium: Rubik_500Medium,
-    RubikSemibold: Rubik_600SemiBold,
+    UbuntuRegular: Ubuntu_400Regular,
+    UbuntuBold: Ubuntu_700Bold,
+    UbuntuMedium: Ubuntu_500Medium,
   });
 
   if (!fontsLoaded && !fontError) {
@@ -24,13 +22,15 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView
-      style={{
-        minHeight: "100%",
-      }}
-    >
-      <StatusBar />
-      <Home />
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView
+        style={{
+          minHeight: "100%",
+        }}
+      >
+        <StatusBar />
+        <Home />
+      </SafeAreaView>
+    </ScrollView>
   );
 }
