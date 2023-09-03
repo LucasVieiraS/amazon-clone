@@ -8,7 +8,7 @@ import Icons from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { formatCurrency } from "react-native-format-currency";
 
-export default function Card({ productData, key }: { productData: ProductData, key: number }) {
+export default function Card({ productData }: { productData: ProductData }) {
   const [_, valueFormattedWithoutSymbol] = formatCurrency({ amount: productData.price, code: "BRL" })
   return (
     <Pressable android_ripple>
